@@ -1,0 +1,17 @@
+.spinclass {
+  color: blue;
+}
+.spinclass2 {
+  color: hotpink;
+}
+
+span button:hover {
+  background-color: darkorange;
+  color:white;
+  transition: 0.7s;
+}
+ 
+li.page-item.disabled {
+  display: none;
+}
+

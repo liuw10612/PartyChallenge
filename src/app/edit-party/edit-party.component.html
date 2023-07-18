@@ -1,0 +1,88 @@
+<form class="modal-content" [formGroup]="partyForm" (ngSubmit)="onSubmit()" autocomplete="off">
+  <div class="modal-header">
+    <h2> <span *ngIf="partyId < 0"> Add a new party </span></h2>
+    <h2> <span *ngIf="partyId > 0"> Update a party </span></h2>
+    <button type="button" class="close" ariel-label="Close" (click)="activeModal.dismiss('cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="pragraph-light-grey">
+      <span class="titleclass">&nbsp;&nbsp;&nbsp;&nbsp;A party reservation</span>
+    </div>
+
+    <br />
+    <div class="row">
+      <div class="col-md-4">
+        <label for="partyname">   <span>Party Name</span></label>
+      </div>
+
+      <div class="col-md-8">
+        <input formControlName="partyName" class="form-control" type="text"  [readonly]="partyId>0"/>
+      </div>
+    </div>
+    <br />
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="numberofpeople">   <span>Number of people</span></label>
+      </div>
+      <div class="col-md-8">
+        <input formControlName="numberOfPeople" class="form-control" type="number" />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-4">
+        <label for="partytime">   <span>Party Time</span></label>
+      </div>
+      <div class="col-md-8">
+        <input formControlName="partyTime" type="datetime-local" />
+      </div>
+    </div>
+
+    <br />
+    <div class="row">
+
+      <div class="col-md-2">
+        <label for="birthday">   <span>Birthday Party</span></label>
+      </div>
+      <div class="col-md-1">
+        <input formControlName="birthday" type="checkbox" />
+      </div>
+
+      <div class="col-md-1">
+        <label for="vip">   <span>Vip</span></label>
+      </div>
+      <div class="col-md-1">
+        <input formControlName="vip" type="checkbox" />
+      </div>
+      <div class="col-md-1">    </div>
+
+      <div class="col-md-2">
+        <label for="privateRoom">   <span>Private Room</span></label>
+      </div>
+      <div class="col-md-1">
+        <input formControlName="privateRoom" type="checkbox" />
+      </div>
+
+      <div class="col-md-1">    </div>
+      <div class="col-md-1">
+        <label for="fullFilled">   <span>Fullfilled</span></label>
+      </div>
+      <div class="col-md-1">
+        <input formControlName="fullFilled" type="checkbox" />
+      </div>
+
+    </div>
+
+    <br/>
+    
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+  </div>
+
+</form>
