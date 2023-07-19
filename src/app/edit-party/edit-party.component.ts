@@ -13,7 +13,14 @@ import { Party } from 'src/app/models/party';
 export class EditPartyComponent implements OnInit {
   @Input() partyId!: number;
 
+  public minPartyDate: string = "";
+  public maxPartyDate: string = "";
+  
   constructor(private fb: UntypedFormBuilder, private partyService: PartyService, public activeModal: NgbActiveModal, @Inject(LOCALE_ID) public locale: string) {
+    let today = new Date;
+    this.minPartyDate = formatDate(today, 'yyyy-MM-ddTHH:mm', this.locale); // reservation minimum date is today
+    today.setDate(today.getDate() + 30); // 30 day  maximum reservation
+    this.maxPartyDate = formatDate(today, 'yyyy-MM-ddTHH:mm', this.locale); // must be in this 2023-01-01T13:01 FORMAT, otherwise , it will not show
   }
 
   public partyTimeTStr = formatDate(new Date(), 'yyyy-MM-ddTHH:mm', this.locale); // must be in this FORMAT, otherwise , it will not show
@@ -35,7 +42,7 @@ export class EditPartyComponent implements OnInit {
       return;
     };
     let party = this.partyService.getParty(this.partyId);
-    this.partyTimeTStr = formatDate(new Date(party.partyTime), 'yyyy-MM-ddTHH:mm', this.locale); // must be in this FORMAT, otherwise , it will not show
+    this.partyTimeTStr = formatDate(new Date(party.partyTime), 'yyyy-MM-ddTHH:mm', this.locale); // must be in this T FORMAT, otherwise , it will not show !
     this.partyForm = this.fb.group({
       'partyId': [party?.id],
       'partyName': [party?.name],
@@ -57,9 +64,9 @@ export class EditPartyComponent implements OnInit {
     }
     var value = this.partyForm.getRawValue();
     console.log(value);
-    let partyTimeStr = new Date(value.partyTime).toString();
+    this.partyTimeTStr = formatDate(new Date(value.partyTime), 'yyyy-MM-ddTHH:mm', this.locale); 
     let party: Party = {
-      id: value.partyId, name: value.partyName, phone: value.phone, counts: value.numberOfPeople, partyTime: partyTimeStr, notes:value.notes,
+      id: value.partyId, name: value.partyName, phone: value.phone, counts: value.numberOfPeople, partyTime: this.partyTimeTStr, notes:value.notes,
       birthday: value.birthday, vip: value.vip, privateRoom: value.privateRoom, fullFilled: value.fullFilled
     };
     if (value.partyId<0) // Add

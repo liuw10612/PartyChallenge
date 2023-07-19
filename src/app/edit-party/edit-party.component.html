@@ -50,7 +50,7 @@
         <label for="partytime">   <span>Party Time</span></label>
       </div>
       <div class="col-md-8">
-        <input formControlName="partyTime" type="datetime-local" />
+        <input formControlName="partyTime" type="datetime-local"  min="{{minPartyDate}}" max="{{maxPartyDate}}">
       </div>
     </div>
     <br />
