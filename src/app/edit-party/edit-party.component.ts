@@ -20,8 +20,10 @@ export class EditPartyComponent implements OnInit {
   partyForm: UntypedFormGroup = this.fb.group({
     'partyId': [-1],
     'partyName': ['', Validators.required],
+    'phone': ['', Validators.pattern('[- +()0-9]{10,12}')],
     'numberOfPeople': [1],
     'partyTime': [this.partyTimeTStr],
+    'notes':[],
     'birthday': [false],
     'vip': [false],
     'privateRoom': [false],
@@ -37,8 +39,10 @@ export class EditPartyComponent implements OnInit {
     this.partyForm = this.fb.group({
       'partyId': [party?.id],
       'partyName': [party?.name],
+      'phone': [party?.phone],
       'numberOfPeople': [party?.counts],
       'partyTime': [this.partyTimeTStr],
+      'notes': [party?.notes],
       'birthday': [party.birthday],
       'vip': [party.vip],
       'privateRoom': [party.privateRoom],
@@ -54,10 +58,13 @@ export class EditPartyComponent implements OnInit {
     var value = this.partyForm.getRawValue();
     console.log(value);
     let partyTimeStr = new Date(value.partyTime).toString();
-    let party: Party = { id: value.partyId, name: value.partyName, counts: value.numberOfPeople, partyTime: partyTimeStr, birthday: value.birthday, vip: value.vip, privateRoom: value.privateRoom, fullFilled: value.fullFilled };
-    if (value.partyId<0)
+    let party: Party = {
+      id: value.partyId, name: value.partyName, phone: value.phone, counts: value.numberOfPeople, partyTime: partyTimeStr, notes:value.notes,
+      birthday: value.birthday, vip: value.vip, privateRoom: value.privateRoom, fullFilled: value.fullFilled
+    };
+    if (value.partyId<0) // Add
       this.partyService.addParty(party);
-    else
+    else // Update
       this.partyService.updateParty(party);
 
     alert('party saved successfully...\nPlease click Ok to continue.');

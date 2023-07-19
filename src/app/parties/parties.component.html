@@ -38,6 +38,8 @@
           </button>
         </th>
 
+        <th>Phone</th>
+
         <th>
           <button class="btn btn-link" (click)="setSort('counts')">
             Number of People
@@ -52,9 +54,11 @@
           </button>
         </th>
 
+        <th>Note</th>
+
         <th>Birthday</th>
         <th>Vip</th>
-        <th>PrivateRoom</th>
+        <th>PrivateRm</th>
         <th>FullFilled</th>
         <th>Update</th>
         <th>Cancel</th>
@@ -62,7 +66,7 @@
 
     </thead>
     <tbody>
-      <tr *ngFor="let party of parties  | filter : searchText : ['name'] | sort : [sortColumn, ascending]">
+      <tr *ngFor="let party of parties  | filter : searchText : ['name','notes'] | sort : [sortColumn, ascending]">
         <td>
           {{ party.id }}
         </td>
@@ -72,11 +76,19 @@
         </td>
 
         <td>
+          {{ party.phone }}
+        </td>
+
+        <td>
           {{ party.counts }}
         </td>
 
         <td>
           {{ party.partyTime | date:'short' }}
+        </td>
+
+        <td>
+          {{ party.notes }}
         </td>
 
         <td>

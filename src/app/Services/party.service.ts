@@ -24,7 +24,10 @@ export class PartyService {
 
     // find the new/max id number
     let newId: number = this.getNewId(parties);
-    let newParty: Party = { id: newId, name: party.name, counts: party.counts, partyTime: party.partyTime, birthday: party.birthday, vip: party.vip, privateRoom: party.privateRoom, fullFilled: party.fullFilled };
+    let newParty: Party = {
+      id: newId, name: party.name, phone: party.phone, counts: party.counts, partyTime: party.partyTime, notes:party.notes,
+      birthday: party.birthday, vip: party.vip, privateRoom: party.privateRoom, fullFilled: party.fullFilled
+    };
     parties.push(newParty);
     // save into storage for all the parties
     localStorage.setItem('party', JSON.stringify(parties));
@@ -96,8 +99,10 @@ export class PartyService {
       {
         id: 1,
         name: "Walter's party",
+        phone:"813-784-1102",
         counts: 10,
         partyTime: partyTime,
+        notes: "Happy Father's day",
         birthday: false,
         vip: true,
         privateRoom: false,
@@ -106,8 +111,10 @@ export class PartyService {
       {
         id: 2,
         name: "Lily's party",
+        phone: "727-669-4368",
         counts: 20,
         partyTime: partyTime,
+        notes: "Happy Birthday",
         birthday: true,
         vip: false,
         privateRoom: false,
@@ -116,8 +123,10 @@ export class PartyService {
       {
         id: 3,
         name: "Steve's party",
+        phone: "727-354-4368",
         counts: 40,
         partyTime: partyTime,
+        notes: "Happy mother's day",
         birthday: false,
         vip: false,
         privateRoom: true,
