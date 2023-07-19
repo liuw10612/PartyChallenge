@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, LOCALE_ID } from '@angular/core';
+import { formatDate } from '@angular/common';
+
 import { Party } from '../models/party';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PartyService {
-  constructor() {
+  constructor(@Inject(LOCALE_ID) public locale: string) {
   }
   // delete all the parties
   clearParties() {
@@ -90,10 +92,10 @@ export class PartyService {
   setSampleData() {
     let PARTIES: Party[];
 
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(18);
-    let partyTime: string = tomorrow.toString();
+    var tomorrow6pm = new Date();
+    tomorrow6pm.setDate(tomorrow6pm.getDate() + 1);
+    tomorrow6pm.setHours(18);
+    let partyTime = formatDate(tomorrow6pm, 'yyyy-MM-ddTHH:mm', this.locale); // must be in this 2023-01-01T13:01 FORMAT, otherwise , it will not show
 
     PARTIES = [
       {
