@@ -37,7 +37,7 @@ export class PartiesComponent  {
     }
   }
 
-  // add or edit a party, id=-1 for add
+  // add or edit a party by a MODAL , id=-1 for add
   public editParty(partyId: number) {
     const modalRef = this.modalService.open(EditPartyComponent, { size: 'lg', backdrop: 'static', ariaLabelledBy: 'modal-basic-title' })
     // passing parameters to modal page

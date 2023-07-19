@@ -1,4 +1,4 @@
-<form class="modal-content" [formGroup]="partyForm" (ngSubmit)="onSubmit()" autocomplete="off">
+<form class="modal-content"    [formGroup]="partyForm" (ngSubmit)="onSubmit()" autocomplete="off">
   <div class="modal-header">
     <h2> <span *ngIf="partyId < 0"> Add a new party </span></h2>
     <h2> <span *ngIf="partyId > 0"> Update a party </span></h2>
@@ -9,7 +9,7 @@
 
   <div class="modal-body">
     <div class="pragraph-light-grey">
-      <span class="titleclass">&nbsp;&nbsp;&nbsp;&nbsp;A party reservation</span>
+      <p class="titleclass">A party reservation</p>
     </div>
 
     <br />
@@ -19,7 +19,18 @@
       </div>
 
       <div class="col-md-8">
-        <input formControlName="partyName" class="form-control" type="text"  [readonly]="partyId>0"/>
+        <input formControlName="partyName" class="form-control" type="text" [readonly]="partyId>0" />
+      </div>
+    </div>
+    <br />
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="phone">   <span>Phone Number</span></label>
+      </div>
+
+      <div class="col-md-8">
+        <input formControlName="phone" class="form-control" type="text" />
       </div>
     </div>
     <br />
@@ -33,6 +44,7 @@
       </div>
     </div>
     <br />
+
     <div class="row">
       <div class="col-md-4">
         <label for="partytime">   <span>Party Time</span></label>
@@ -41,6 +53,17 @@
         <input formControlName="partyTime" type="datetime-local" />
       </div>
     </div>
+    <br />
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="notes">   <span>Notes</span></label>
+      </div>
+      <div class="col-md-8">
+        <textarea formControlName="notes" rows="4" class="form-control"></textarea>
+      </div>
+    </div>
+    <br />
 
     <hr />
     <div class="row">
@@ -77,8 +100,8 @@
 
     </div>
 
-    <br/>
-    
+    <br />
+
   </div>
 
   <div class="modal-footer">

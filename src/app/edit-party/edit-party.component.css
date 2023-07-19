@@ -1,3 +1,8 @@
+.modal-content {
+  border-radius: 30px;
+  background-color: rgb(245,245,245);
+}
+
 section {
   border-radius: 10px;
   border: 1px solid black;
@@ -18,9 +23,7 @@ section {
   font-size: 16px;
 }
 
-.smileclass{
-  color:orange
-}
+ 
 
 .titleclass {
   font-family: Monotype Corsiva;
@@ -28,12 +31,4 @@ section {
   color: blue;
   font-size: 68px
 }
-.walterclass {
-  font-family: cursive;
-  color: darkblue;
-  font-size: 54px
-}
-.githubclass {
-  color: skyblue;
-  font-size: 16px
-}
+ 
