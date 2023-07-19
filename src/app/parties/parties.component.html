@@ -8,7 +8,7 @@
       <div class="input-group">
         <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search" />
         <span class="input-group-btn">
-          <button class="btn btn-outline-info" (click)="editParty(-1)" ngbTooltip="Add a New Party Reservation">
+          <button class="btn btn-outline-primary" (click)="editParty(-1)" ngbTooltip="Add a New Party Reservation">
             <fa-icon icon="plus"></fa-icon>
             Add New Reservation
           </button>
@@ -76,16 +76,20 @@
           {{ party.partyTime | date:'short' }}
         </td>
         <td>
-          {{ party.birthday }}
+          <fa-icon *ngIf="party.birthday" icon="check-circle" size="1x"></fa-icon>
+          <fa-icon *ngIf="!party.birthday" icon="circle-notch" size="1x"></fa-icon>
         </td>
         <td>
-          {{ party.vip }}
+          <fa-icon *ngIf="party.vip" icon="check-circle" size="1x"></fa-icon>
+          <fa-icon *ngIf="!party.vip" icon="circle-notch" size="1x"></fa-icon>
         </td>
         <td>
-          {{ party.privateRoom }}
+          <fa-icon *ngIf="party.privateRoom" icon="check-circle" size="1x"></fa-icon>
+          <fa-icon *ngIf="!party.privateRoom" icon="circle-notch" size="1x"></fa-icon>
         </td>
         <td>
-          {{ party.fullFilled }}
+          <fa-icon *ngIf="party.fullFilled" icon="check-circle" size="1x"></fa-icon>
+          <fa-icon *ngIf="!party.fullFilled" icon="circle-notch" size="1x"></fa-icon>
         </td>
 
         <td>

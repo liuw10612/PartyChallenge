@@ -1,0 +1,2 @@
+C:\Users\liuw1\source\repos\PartyChallenge\obj\Debug\PartyChallenge.esproj.SuggestedBindingRedirects.cache
+C:\Users\liuw1\source\repos\PartyChallenge\obj\Debug\PartyChallenge.esproj.CoreCompileInputs.cache
