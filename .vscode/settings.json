@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/98cd5545-eb99-4a23-a2cc-ed39cb9339b4/resourceGroups/test1/providers/Microsoft.Web/sites/WalterLiuPartyChallenge",
+    "appService.deploySubpath": "dist"
+}
