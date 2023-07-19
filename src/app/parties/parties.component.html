@@ -30,6 +30,7 @@
             <fa-icon [icon]="ascending ? 'sort-amount-down':'sort-amount-up'" *ngIf="sortColumn === 'id'"></fa-icon>
           </button>
         </th>
+
         <th>
           <button class="btn btn-link" (click)="setSort('name')">
             Party Name
@@ -38,12 +39,11 @@
         </th>
 
         <th>
-          <button class="btn btn-link" (click)="setSort('count')">
+          <button class="btn btn-link" (click)="setSort('counts')">
             Number of People
-            <fa-icon [icon]="ascending ? 'sort-amount-down':'sort-amount-up'" *ngIf="sortColumn === 'count'"></fa-icon>
+            <fa-icon [icon]="ascending ? 'sort-amount-down':'sort-amount-up'" *ngIf="sortColumn === 'counts'"></fa-icon>
           </button>
         </th>
-
 
         <th>
           <button class="btn btn-link" (click)="setSort('partyTime')">
@@ -52,19 +52,21 @@
           </button>
         </th>
 
-        <th>          Birthday      </th>
-        <th>          Vip           </th>
-        <th>          PrivateRoom   </th>
-        <th>          FullFilled    </th>
+        <th>Birthday</th>
+        <th>Vip</th>
+        <th>PrivateRoom</th>
+        <th>FullFilled</th>
         <th>Update</th>
         <th>Cancel</th>
       </tr>
+
     </thead>
     <tbody>
       <tr *ngFor="let party of parties  | filter : searchText : ['name'] | sort : [sortColumn, ascending]">
         <td>
           {{ party.id }}
         </td>
+
         <td>
           {{ party.name }}
         </td>
@@ -72,21 +74,26 @@
         <td>
           {{ party.counts }}
         </td>
+
         <td>
           {{ party.partyTime | date:'short' }}
         </td>
+
         <td>
           <fa-icon *ngIf="party.birthday" icon="check-circle" size="1x"></fa-icon>
           <fa-icon *ngIf="!party.birthday" icon="circle-notch" size="1x"></fa-icon>
         </td>
+
         <td>
           <fa-icon *ngIf="party.vip" icon="check-circle" size="1x"></fa-icon>
           <fa-icon *ngIf="!party.vip" icon="circle-notch" size="1x"></fa-icon>
         </td>
+
         <td>
           <fa-icon *ngIf="party.privateRoom" icon="check-circle" size="1x"></fa-icon>
           <fa-icon *ngIf="!party.privateRoom" icon="circle-notch" size="1x"></fa-icon>
         </td>
+
         <td>
           <fa-icon *ngIf="party.fullFilled" icon="check-circle" size="1x"></fa-icon>
           <fa-icon *ngIf="!party.fullFilled" icon="circle-notch" size="1x"></fa-icon>
@@ -95,6 +102,7 @@
         <td>
           <a class="btn btn-success btn-sm" (click)="editParty(party.id)"><fa-icon icon="edit"></fa-icon></a>
         </td>
+
         <td>
           <a class="btn btn-link btn-sm" href="#" (click)="$event.preventDefault();deleteParty(party)"><fa-icon icon="trash-alt"></fa-icon></a>
         </td>
@@ -104,6 +112,7 @@
   </table>
 
   <hr class="my-3">
+
   <div class="row">
     <div class="col-md-9">
     </div>

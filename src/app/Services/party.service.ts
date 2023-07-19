@@ -7,11 +7,11 @@ import { Party } from '../models/party';
 export class PartyService {
   constructor() {
   }
-
+  // delete all the parties
   clearParties() {
       localStorage.removeItem('party');
   }
-
+  // add a new party reservation
   addParty(party: Party) {
     // get all existing parties
     let parties: Party[] = this.getParties();
@@ -28,21 +28,18 @@ export class PartyService {
     parties.push(newParty);
     // save into storage for all the parties
     localStorage.setItem('party', JSON.stringify(parties));
-    //alert('addParty');
     return;
   }
 
+  // update one party reservation
   updateParty(party: Party) {
-    //console.log(party);
     // get all existing parties
     let parties: Party[] = this.getParties();
     // find the party index
     var foundIndex = parties.findIndex(x => x.id == party.id);
     parties[foundIndex] = party;
-    //console.log(parties[foundIndex]);
     // save into storage for all the parties
     localStorage.setItem('party', JSON.stringify(parties));
-    //console.log(parties);
     return;
   }
 
@@ -56,6 +53,7 @@ export class PartyService {
     
     return maxId + 1;
   }
+
   // get all the parties
   getParties() {
     let parties: any = localStorage.getItem('party');
@@ -65,6 +63,7 @@ export class PartyService {
       return emptyParties;
     return (JSON.parse(parties));
   }
+
   // get a party by ID
   getParty(partyId: number) {
     // get all existing parties
@@ -73,6 +72,7 @@ export class PartyService {
     var foundIndex = parties.findIndex(x => x.id == partyId);
     return parties[foundIndex];;
   }
+
   // delete/cancel by filter out the party by ID
   deleteParty(party: Party) {
     // get all existing parties
@@ -82,7 +82,8 @@ export class PartyService {
     localStorage.setItem('party', JSON.stringify(parties));
     return;
   }
-  // simulated party datas for testing
+
+  // load simulated party data for testing
   setSampleData() {
     let PARTIES: Party[];
 
