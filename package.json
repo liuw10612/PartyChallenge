@@ -40,7 +40,7 @@
     "@angular-devkit/build-angular": "^16.1.4",
     "@angular/cli": "^16.1.4",
     "@angular/compiler-cli": "^16.1.4",
-    "@fortawesome/angular-fontawesome": "0.13.0",
+    "@fortawesome/angular-fontawesome": "latest",
     "@fortawesome/fontawesome-svg-core": "latest",
     "@fortawesome/free-solid-svg-icons": "latest",
     "@types/jasmine": "~4.0.3",
