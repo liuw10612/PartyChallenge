@@ -2,8 +2,8 @@ import { Component, Input, OnInit, Inject,  LOCALE_ID} from '@angular/core';
 import { formatDate } from '@angular/common';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { PartyService } from 'src/app/services/party.service';
-import { Party } from 'src/app/models/party';
+import { PartyService } from '../services/party.service';
+import { Party } from '../models/party';
 
 @Component({
   selector: 'edit-party',
