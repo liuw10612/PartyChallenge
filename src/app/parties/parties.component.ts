@@ -1,7 +1,7 @@
 import { Component,  } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { PartyService } from '../Services/party.service';
+import { PartyService } from '../services/party.service';
 import { Party } from '../models/party';
 import { EditPartyComponent } from '../edit-party/edit-party.component';
 
