@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Inject,  LOCALE_ID} from '@angular/core';
 import { formatDate } from '@angular/common';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { PartyService } from 'src/app/Services/party.service';
+import { PartyService } from 'src/app/services123/party.service';
 import { Party } from 'src/app/models/party';
 
 @Component({
