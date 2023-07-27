@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faSearch, faPlus, faSortAmountUp, faSortAmountDown, faSpinner, faSmile, faEdit, faTrashAlt,faCheck, faCheckCircle, faCircle, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
 
 import { AppComponent } from './app.component';
@@ -32,7 +30,6 @@ import { SortPipe } from './sort.pipe';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    FontAwesomeModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'parties', component: PartiesComponent },
@@ -43,7 +40,5 @@ import { SortPipe } from './sort.pipe';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
-    library.addIcons(faSearch, faPlus, faSortAmountUp, faSortAmountDown, faSpinner, faSmile, faEdit, faTrashAlt, faCheck, faCheckCircle, faCircle, faCircleNotch);
-  }
+
 }
