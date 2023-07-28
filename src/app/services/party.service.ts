@@ -1,8 +1,12 @@
 import { Injectable, Inject, LOCALE_ID } from '@angular/core';
 import { formatDate } from '@angular/common';
-
 import { Party } from '../models/party';
 
+/**
+ * A service to use Angular localStorage Api
+ * to simulate DB CRUD operations
+ * Local storage is client-side storage for web applications. 
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -78,7 +82,7 @@ export class PartyService {
     return parties[foundIndex];;
   }
 
-  // delete/cancel by filter out the party by ID
+  // delete/cancel a party reservation by filtering out the party by ID
   deleteParty(party: Party) {
     // get all existing parties
     let parties: Party[] = this.getParties();
@@ -88,7 +92,7 @@ export class PartyService {
     return;
   }
 
-  // load simulated party data for testing
+  // Fixtures : load simulated parties data for testing
   setSampleData() {
     let PARTIES: Party[];
 
