@@ -5,6 +5,11 @@ import { PartyService } from '../services/party.service';
 import { Party } from '../models/party';
 import { EditPartyComponent } from '../edit-party/edit-party.component';
 
+/**
+ * 
+ * A component to list/add/edit party reservations
+ * 
+ */
 
 @Component({
   selector: 'parties',
@@ -26,6 +31,7 @@ export class PartiesComponent  {
       this.parties = this.partyService.getParties();
     }
   }
+
   // sort column
   public setSort(column: string) {
     if (this.sortColumn === column) {
@@ -37,7 +43,7 @@ export class PartiesComponent  {
     }
   }
 
-  // add or edit a party by a MODAL , id=-1 for add
+  // add or edit a party by a MODAL page , id==-1 for add
   public editParty(partyId: number) {
     const modalRef = this.modalService.open(EditPartyComponent, { size: 'lg', backdrop: 'static', ariaLabelledBy: 'modal-basic-title' })
     // passing parameters to modal page
@@ -46,11 +52,13 @@ export class PartiesComponent  {
       this.closeResult = result;
       // re load parties after update
       this.parties = this.partyService.getParties()
-    },
+      },
       reason => {
         this.closeResult = `Dismissed ${reason}`;
-      });
+      }
+    );
   }
+
   // cancel/delete a party reservation
   public deleteParty(party:Party) {
     if (confirm(`Really want to cancel party : '${party.name}'?`)) {
@@ -58,6 +66,7 @@ export class PartiesComponent  {
       this.partyService.deleteParty(party);
     }
   }
+
   // clean up
   public reset() {
     if (confirm(`Are you sure to delete al the parties? Click OK to continue`)) {
@@ -65,6 +74,7 @@ export class PartiesComponent  {
       this.parties = this.partyService.getParties();
     }
   }
+
   // load some sample data for testing
   public loadSampleData() {
     if (confirm(`Are you sure to re fresh data by sample testing data? Click OK to continue`)) {
